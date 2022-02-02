@@ -56,10 +56,9 @@ async def start_handler(bot: Client, m: Message):
         quote=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("Developer - @AbirHasan2005", url="https://t.me/AbirHasan2005")],
-                [InlineKeyboardButton("Support Group", url="https://t.me/linux_repo"),
-                 InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")],
-                [InlineKeyboardButton("Open Settings", callback_data="openSettings")],
+                [InlineKeyboardButton("❗Support❗", url="https://t.me/Groupdc"),
+                 InlineKeyboardButton("🔰 Bots Channel 🔰", url="https://t.me/Groupdcbots")],
+                [InlineKeyboardButton("⚙️ Settings ⚙️", callback_data="openSettings")],
                 [InlineKeyboardButton("Close", callback_data="closeMeh")]
             ]
         )
@@ -86,7 +85,7 @@ async def videos_handler(bot: Client, m: Message):
         return
     input_ = f"{Config.DOWN_PATH}/{m.from_user.id}/input.txt"
     if os.path.exists(input_):
-        await m.reply_text("Sorry Unkil,\nAlready One in Progress!\nDon't Spam Plox.")
+        await m.reply_text("Sorry🤥,\nAlready One in Progress!\nDon't Spam 🚶.")
         return
     isInGap, sleepTime = await CheckTimeGap(m.from_user.id)
     if isInGap is True:
@@ -133,8 +132,8 @@ async def photo_handler(bot: Client, m: Message):
         text="Thumbnail Saved Successfully!",
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("Show Thumbnail", callback_data="showThumbnail")],
-                [InlineKeyboardButton("Delete Thumbnail", callback_data="deleteThumbnail")]
+                [InlineKeyboardButton("Show Thumbnail 🖼️", callback_data="showThumbnail")],
+                [InlineKeyboardButton("Delete Thumbnail 🖼️", callback_data="deleteThumbnail")]
             ]
         )
     )
@@ -146,7 +145,7 @@ async def settings_handler(bot: Client, m: Message):
     Fsub = await ForceSub(bot, m)
     if Fsub == 400:
         return
-    editable = await m.reply_text("Please Wait ...", quote=True)
+    editable = await m.reply_text("Please Wait ...⏳", quote=True)
     await OpenSettings(editable, m.from_user.id)
 
 
@@ -166,7 +165,7 @@ async def _status(_, m: Message):
     disk_usage = psutil.disk_usage('/').percent
     total_users = await db.total_users_count()
     await m.reply_text(
-        text=f"**Total Disk Space:** {total} \n**Used Space:** {used}({disk_usage}%) \n**Free Space:** {free} \n**CPU Usage:** {cpu_usage}% \n**RAM Usage:** {ram_usage}%\n\n**Total Users in DB:** `{total_users}`",
+        text=f"**✅Total Disk Space:** {total} \n**😭Used Space:** {used}({disk_usage}%) \n**😇Free Space:** {free} \n**💻CPU Usage:** {cpu_usage}% \n**💾RAM Usage:** {ram_usage}%\n\n**👥Total Users in DB:** `{total_users}`",
         parse_mode="Markdown",
         quote=True
     )
@@ -260,7 +259,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
         if (len(vid_list) < 2) and (len(vid_list) > 0):
             await cb.message.edit("There only One Video in Queue!\nMaybe you sent same video multiple times.")
             return
-        await cb.message.edit("Trying to Merge Videos ...")
+        await cb.message.edit("Trying to Merge Videos ...🦊")
         with open(input_, 'w') as _list:
             _list.write("\n".join(vid_list))
         merged_vid_path = await MergeVideo(
@@ -291,8 +290,8 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
             text="Do you like to rename file?\nChoose a Button from below:",
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [InlineKeyboardButton("Rename File", callback_data="renameFile_Yes")],
-                    [InlineKeyboardButton("Keep Default", callback_data="renameFile_No")]
+                    [InlineKeyboardButton("🖋️ Rename File", callback_data="renameFile_Yes")],
+                    [InlineKeyboardButton("📄 Keep Default", callback_data="renameFile_No")]
                 ]
             )
         )
@@ -311,7 +310,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                 reply_to_message_id=message_.message_id,
                 reply_markup=InlineKeyboardMarkup(
                     [
-                        [InlineKeyboardButton("Remove File", callback_data=f"removeFile_{str(message_.message_id)}")]
+                        [InlineKeyboardButton("❌ Remove File ❌", callback_data=f"removeFile_{str(message_.message_id)}")]
                     ]
                 )
             )
@@ -343,7 +342,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+                                InlineKeyboardButton("🤹 Join Updates Channel 🤹", url=invite_link.invite_link)
                             ],
                             [
                                 InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshFsub")
@@ -355,7 +354,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                 return
             except Exception:
                 await cb.message.edit(
-                    text="Something went Wrong. Contact my [Support Group](https://t.me/linux_repo).",
+                    text="Something went Wrong 😭. Contact my [Support Group](https://t.me/Groupdc).",
                     parse_mode="markdown",
                     disable_web_page_preview=True
                 )
@@ -363,19 +362,19 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
         await cb.message.edit(
             text=Config.START_TEXT,
             parse_mode="Markdown",
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Developer - @AbirHasan2005", url="https://t.me/AbirHasan2005"), InlineKeyboardButton("Support Group", url="https://t.me/linux_repo")], [InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")]]),
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Developer - @Selfiebd", url="https://t.me/Selfiebd"), InlineKeyboardButton("❗Support❗", url="https://t.me/Groupdc")], [InlineKeyboardButton("🔰 Bot List 🔰", url="https://t.me/Groupdcbots")]]),
             disable_web_page_preview=True
         )
     elif "showThumbnail" in cb.data:
         db_thumbnail = await db.get_thumbnail(cb.from_user.id)
         if db_thumbnail is not None:
-            await cb.answer("Sending Thumbnail ...", show_alert=True)
+            await cb.answer("Sending Thumbnail ...🦏", show_alert=True)
             await bot.send_photo(
                 chat_id=cb.message.chat.id,
                 photo=db_thumbnail,
                 reply_markup=InlineKeyboardMarkup(
                     [
-                        [InlineKeyboardButton("Delete Thumbnail", callback_data="deleteThumbnail")]
+                        [InlineKeyboardButton("Delete Thumbnail 🖼️", callback_data="deleteThumbnail")]
                     ]
                 )
             )
@@ -399,7 +398,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                 reply_markup=InlineKeyboardMarkup(markup)
             )
         except ValueError:
-            await cb.answer("Your Queue Empty Unkil!", show_alert=True)
+            await cb.answer("Your Queue Empty 🙄!", show_alert=True)
     elif cb.data.startswith("removeFile_"):
         if (QueueDB.get(cb.from_user.id, None) is not None) or (QueueDB.get(cb.from_user.id) != []):
             QueueDB.get(cb.from_user.id).remove(int(cb.data.split("_", 1)[-1]))
@@ -431,11 +430,11 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
         await OpenSettings(cb.message, cb.from_user.id)
     elif cb.data.startswith("renameFile_"):
         if (QueueDB.get(cb.from_user.id, None) is None) or (QueueDB.get(cb.from_user.id) == []):
-            await cb.answer("Sorry Unkil, Your Queue is Empty!", show_alert=True)
+            await cb.answer("Sorry 🤥, Your Queue is Empty!", show_alert=True)
             return
-        merged_vid_path = f"{Config.DOWN_PATH}/{str(cb.from_user.id)}/[@AbirHasan2005]_Merged.{FormtDB.get(cb.from_user.id).lower()}"
+        merged_vid_path = f"{Config.DOWN_PATH}/{str(cb.from_user.id)}/[@GroupDcBots]_Merged.{FormtDB.get(cb.from_user.id).lower()}"
         if cb.data.split("_", 1)[-1] == "Yes":
-            await cb.message.edit("Okay Unkil,\nSend me new file name!")
+            await cb.message.edit("Okay 👍,\nSend me new file name!")
             try:
                 ask_: Message = await bot.listen(cb.message.chat.id, timeout=300)
                 if ask_.text:
@@ -446,7 +445,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                     await asyncio.sleep(2)
                     merged_vid_path = new_file_name
             except TimeoutError:
-                await cb.message.edit("Time Up!\nNow I will upload file with default name.")
+                await cb.message.edit("Time Up!\nNow I will upload file with default name😡.")
                 await asyncio.sleep(Config.TIME_GAP)
             except:
                 pass
@@ -466,7 +465,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
             await delete_all(root=f"{Config.DOWN_PATH}/{cb.from_user.id}/")
             QueueDB.update({cb.from_user.id: []})
             FormtDB.update({cb.from_user.id: None})
-            await cb.message.edit("The Merged Video Corrupted!\nTry Again Later.")
+            await cb.message.edit("The Merged Video Corrupted!\nTry Again Later.🏇")
             return
         video_thumbnail = None
         db_thumbnail = await db.get_thumbnail(cb.from_user.id)
@@ -553,7 +552,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                 await cb.message.edit("Failed to Generate Sample Video!")
                 await asyncio.sleep(Config.TIME_GAP)
             else:
-                await cb.message.edit("Successfully Generated Sample Video!\nNow Uploading ...")
+                await cb.message.edit("Successfully Generated Sample Video!\nNow Uploading ...👍🤹")
                 sam_vid_duration = 5
                 sam_vid_width = 100
                 sam_vid_height = 100
