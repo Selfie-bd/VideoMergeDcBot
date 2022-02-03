@@ -30,9 +30,9 @@ async def UploadVideo(bot: Client, cb: CallbackQuery, merged_vid_path: str, widt
                 ),
                 reply_markup=InlineKeyboardMarkup(
                     [
-                        [InlineKeyboardButton("Developer - @AbirHasan2005", url="https://t.me/AbirHasan2005")],
-                        [InlineKeyboardButton("Support Group", url="https://t.me/linux_repo"),
-                         InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")]
+                        [InlineKeyboardButton("Developer - @Selfiebd", url="https://t.me/selfiebd")],
+                        [InlineKeyboardButton("❗Support Group❗", url="https://t.me/groupdc"),
+                         InlineKeyboardButton("🔰 Bots Channel 🔰", url="https://t.me/Groupdcbots")]
                     ]
                 )
             )
@@ -51,9 +51,9 @@ async def UploadVideo(bot: Client, cb: CallbackQuery, merged_vid_path: str, widt
                 ),
                 reply_markup=InlineKeyboardMarkup(
                     [
-                        [InlineKeyboardButton("Developer - @AbirHasan2005", url="https://t.me/AbirHasan2005")],
-                        [InlineKeyboardButton("Support Group", url="https://t.me/linux_repo"),
-                         InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")]
+                        [InlineKeyboardButton("Developer - @Selfiebd", url="https://t.me/selfiebd")],
+                        [InlineKeyboardButton("❗Support Group❗", url="https://t.me/groupdc"),
+                         InlineKeyboardButton("🔰 Bots Channel 🔰", url="https://t.me/Groupdcbots")]
                     ]
                 )
             )
@@ -67,6 +67,6 @@ async def UploadVideo(bot: Client, cb: CallbackQuery, merged_vid_path: str, widt
     except Exception as err:
         print(f"Failed to Upload Video!\nError: {err}")
         try:
-            await cb.message.edit(f"Failed to Upload Video!\n**Error:**\n`{err}`")
+            await cb.message.edit(f"Failed to Upload Video😭!\n**Error:**\n`{err}`")
         except:
             pass
