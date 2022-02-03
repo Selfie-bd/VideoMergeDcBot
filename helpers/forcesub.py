@@ -33,7 +33,7 @@ async def ForceSub(bot: Client, cmd: Message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🤖 Join Updates Channel", url=invite_link.invite_link)
+                        InlineKeyboardButton("🔰 Join Updates Channel 🔰", url=invite_link.invite_link)
                     ],
                     [
                         InlineKeyboardButton("🔄 Refresh 🔄", callback_data="refreshFsub")
@@ -46,7 +46,7 @@ async def ForceSub(bot: Client, cmd: Message):
     except Exception:
         await bot.send_message(
             chat_id=cmd.from_user.id,
-            text="Something went Wrong. Contact my [Support Group](https://t.me/linux_repo).",
+            text="Something went Wrong. Contact my [Support Group](https://t.me/Groupdc).",
             parse_mode="markdown",
             disable_web_page_preview=True
         )
