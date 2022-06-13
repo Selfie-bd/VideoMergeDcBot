@@ -37,8 +37,9 @@ QueueDB = {}
 ReplyDB = {}
 FormtDB = {}
 NubBot = Client(
-    api_id=int(Config.API_ID),
     api_hash=Config.API_HASH,
+    api_id=int(Config.API_ID),
+    session_name=Config.SESSION_NAME,
     bot_token=Config.BOT_TOKEN
 )
 
